@@ -1,0 +1,9 @@
+﻿@inject Microsoft.AspNetCore.Authentication.IAuthenticationSchemeProvider schemeProvider
+
+
+@foreach(var p in await schemeProvider.GetRequestHandlerSchemesAsync()) 
+{
+    <a class="btn btn-primary login-button" asp-controller="TwitterAuth" 
+       asp-route-provider="@p.Name"
+       asp-action="SignIn">@p.DisplayName</a>
+}

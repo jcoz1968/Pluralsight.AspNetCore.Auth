@@ -42,7 +42,7 @@ namespace Pluralsight.AspNetCore.Auth.Web
 			//	fbopt.AppSecret = "a2140db463dd1d96edf4f0e51817279a";
 			//});
 			services.AddAuthentication(options => {
-				options.DefaultChallengeScheme = FacebookDefaults.AuthenticationScheme;
+				options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
 				options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
 				options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
 			})
@@ -50,7 +50,13 @@ namespace Pluralsight.AspNetCore.Auth.Web
 				fbopt.AppId = "229528624261290";
 				fbopt.AppSecret = "a2140db463dd1d96edf4f0e51817279a";
 			})
-			.AddCookie();
+			.AddTwitter(twitopt => {
+				twitopt.ConsumerKey = "8P7GCEjgbSA68kvUh3ILrfJwU";
+				twitopt.ConsumerSecret = "Cv8h41tmunbM4Hv9LOgUKA1RF2GxHfQfkqvfrndyS6z7Npkj7B";
+			})
+			.AddCookie(opt => {
+				opt.LoginPath = "/twitterauth/signin";
+			});
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
