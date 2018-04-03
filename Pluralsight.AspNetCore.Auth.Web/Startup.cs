@@ -27,7 +27,7 @@ namespace Pluralsight.AspNetCore.Auth.Web
 				options.Filters.Add(new RequireHttpsAttribute());
 			});
 
-			var users = new Dictionary<string, string> { { "Chris", "password" } };
+			var users = new Dictionary<string, string> { { "coz", "password" } };
 			services.AddSingleton<IUserService>(new DummyUserService(users));
 
 			services.AddAuthentication(options => {
@@ -36,6 +36,7 @@ namespace Pluralsight.AspNetCore.Auth.Web
 				options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
 			})
 			.AddCookie(options => { options.LoginPath = "/auth/signin"; });
+
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,6 +54,7 @@ namespace Pluralsight.AspNetCore.Auth.Web
 
 			app.UseRewriter(new RewriteOptions().AddRedirectToHttps(301, 44343));
 			app.UseStaticFiles();
+			app.UseAuthentication();
 			app.UseMvc(routes =>
 			{
 				routes.MapRoute(
