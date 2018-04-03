@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.Facebook;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -30,13 +31,26 @@ namespace Pluralsight.AspNetCore.Auth.Web
 			var users = new Dictionary<string, string> { { "coz", "password" } };
 			services.AddSingleton<IUserService>(new DummyUserService(users));
 
+			//services.AddAuthentication(options => {
+			//	options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+			//	options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+			//	options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+			//})
+			//.AddCookie(options => { options.LoginPath = "/auth/signin"; })
+			//.AddFacebook(fbopt => {
+			//	fbopt.AppId = "229528624261290";
+			//	fbopt.AppSecret = "a2140db463dd1d96edf4f0e51817279a";
+			//});
 			services.AddAuthentication(options => {
-				options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+				options.DefaultChallengeScheme = FacebookDefaults.AuthenticationScheme;
 				options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-				options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+				options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
 			})
-			.AddCookie(options => { options.LoginPath = "/auth/signin"; });
-
+			.AddFacebook(fbopt => {
+				fbopt.AppId = "229528624261290";
+				fbopt.AppSecret = "a2140db463dd1d96edf4f0e51817279a";
+			})
+			.AddCookie();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
