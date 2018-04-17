@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2015
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pluralsight.AspNetCore.Auth.Web", "Pluralsight.AspNetCore.Auth.Web\Pluralsight.AspNetCore.Auth.Web.csproj", "{89F12E87-F2BF-4453-8116-5DDD39E1AC28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pluralsight.AspNetCore.Auth.Web", "Pluralsight.AspNetCore.Auth.Web\Pluralsight.AspNetCore.Auth.Web.csproj", "{89F12E87-F2BF-4453-8116-5DDD39E1AC28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pluralsight.AspNetCore.Auth.IdentityServer", "Pluralsight.AspNetCore.Auth.IdentityServer\Pluralsight.AspNetCore.Auth.IdentityServer.csproj", "{CC6FA64E-1884-4E24-9A67-4838153D9C85}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{89F12E87-F2BF-4453-8116-5DDD39E1AC28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89F12E87-F2BF-4453-8116-5DDD39E1AC28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89F12E87-F2BF-4453-8116-5DDD39E1AC28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC6FA64E-1884-4E24-9A67-4838153D9C85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC6FA64E-1884-4E24-9A67-4838153D9C85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC6FA64E-1884-4E24-9A67-4838153D9C85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC6FA64E-1884-4E24-9A67-4838153D9C85}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
